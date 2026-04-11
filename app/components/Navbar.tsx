@@ -17,6 +17,7 @@ export default function Navbar() {
   const links = [
     { label: "About", href: "#about" },
     { label: "Business", href: "#business" },
+    { label: "Leadership", href: "/founder" },
     { label: "Governance", href: "#governance" },
     { label: "Contact", href: "#contact" },
   ];
@@ -47,13 +48,13 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               className="text-white/80 hover:text-amber text-sm font-medium tracking-wide transition-colors duration-200"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           {/* <Link
             href="/founder"
@@ -93,14 +94,14 @@ export default function Navbar() {
           style={{ background: "rgba(13,43,35,0.97)" }}
         >
           {links.map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               onClick={() => setMobileOpen(false)}
               className="text-white/80 hover:text-amber text-base font-medium py-1 border-b border-white/10"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           {/* <Link
             href="/founder"

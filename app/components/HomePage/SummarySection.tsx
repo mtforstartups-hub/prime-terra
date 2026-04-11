@@ -1,5 +1,6 @@
 "use client";
 import { motion, Variants } from "motion/react";
+import Image from "next/image";
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -80,6 +81,28 @@ export default function SummarySection() {
                 and supply chain expertise to the precious metals sector.
               </p>
             </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="rounded-3xl overflow-hidden hidden lg:block"
+            style={{
+              border: "1px solid rgba(28,82,68,0.15)",
+              boxShadow: "0 16px 48px rgba(28,82,68,0.08)",
+            }}
+          >
+            <div className="h-125">
+              <Image
+                src="/pexels-ellie-burgin-1661546-28182773.jpg"
+                alt="Gold Ore"
+                width={800}
+                height={300}
+                className="object-cover"
+              />
+            </div>
           </motion.div>
 
           {/* Corporate Info Card */}

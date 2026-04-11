@@ -148,10 +148,10 @@ export default function Hero() {
                   number: "40+",
                   label: "Years Family Legacy in Precious Metals",
                 },
-                {
-                  number: "2012",
-                  label: "RKTEK Founded — IT & Management Consulting",
-                },
+                // {
+                //   number: "2012",
+                //   label: "RKTEK Founded — IT & Management Consulting",
+                // },
                 {
                   number: "4",
                   label: "Global Regions: US, Europe, India, Africa & UAE",
