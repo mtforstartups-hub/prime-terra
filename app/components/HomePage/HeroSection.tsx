@@ -77,7 +77,7 @@ export default function HeroSection() {
           src="/pexels-pixabay-56030.jpg"
           alt="Prime Terra — Gold and Silver Trading"
           className="w-full h-full object-cover"
-          //   style={{ objectPosition: "15% center" }}
+          priority
           width={1600}
           height={1000}
         />
