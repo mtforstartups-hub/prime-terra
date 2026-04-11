@@ -2,54 +2,251 @@
 import { motion } from "motion/react";
 import Badge from "../Badge";
 import { fadeUp, staggerContainer } from "./SummarySection";
-import { BarChart3, Factory, Handshake } from "lucide-react";
+import {
+  Coins,
+  Briefcase,
+  Globe,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
 
-function PillarCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
+interface PillarItem {
   title: string;
   description: string;
-}) {
+}
+
+interface PillarProps {
+  index: string;
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  items: PillarItem[];
+  footerNote?: string;
+  isPrimary?: boolean;
+}
+
+function Pillar({
+  index,
+  icon,
+  title,
+  subtitle,
+  items,
+  footerNote,
+  isPrimary,
+}: PillarProps) {
   return (
     <motion.div
       variants={fadeUp}
-      className="rounded-3xl p-7 flex flex-col gap-4 h-full transition-all duration-300 hover:-translate-y-1"
+      className={`relative group flex flex-col h-full rounded-4xl overflow-hidden transition-all duration-500 hover:z-10`}
       style={{
-        background: "rgba(28,82,68,0.05)",
-        border: "1px solid rgba(28,82,68,0.15)",
+        background: isPrimary ? "var(--color-forest)" : "white",
+        border: isPrimary ? "none" : "1px solid rgba(28,82,68,0.12)",
+        boxShadow: isPrimary
+          ? "0 20px 50px rgba(28,82,68,0.15)"
+          : "0 10px 30px rgba(0,0,0,0.02)",
       }}
-      whileHover={{ boxShadow: "0 12px 40px rgba(28,82,68,0.12)" }}
     >
+      {/* Background Index Number */}
       <div
-        className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
-        style={{
-          background: "var(--color-forest)",
-          color: "var(--color-amber)",
-        }}
+        className={`absolute -top-4 -right-4 text-[120px] font-black leading-none select-none pointer-events-none opacity-[0.03] italic`}
+        style={{ color: isPrimary ? "white" : "var(--color-forest)" }}
       >
-        {icon}
+        {index}
       </div>
-      <h3
-        className="text-lg font-bold text-charcoal"
-        style={{ fontFamily: "var(--font-heading)" }}
-      >
-        {title}
-      </h3>
-      <p className="text-charcoal-light text-sm leading-relaxed">
-        {description}
-      </p>
+
+      <div className="p-8 md:p-10 flex flex-col h-full">
+        {/* Header Section */}
+        <div className="mb-10">
+          <div
+            className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+            style={{
+              background: isPrimary
+                ? "var(--color-amber)"
+                : "rgba(28,82,68,0.05)",
+              color: isPrimary
+                ? "var(--color-forest-dark)"
+                : "var(--color-forest)",
+            }}
+          >
+            {icon}
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span
+              className="text-[10px] font-bold tracking-[0.2em] uppercase"
+              style={{
+                color: isPrimary
+                  ? "rgba(248,171,29,0.8)"
+                  : "var(--color-amber-dark)",
+              }}
+            >
+              Pillar {index}
+            </span>
+            <h3
+              className={`text-2xl font-extrabold leading-tight`}
+              style={{
+                color: isPrimary ? "white" : "var(--color-forest-dark)",
+                fontFamily: "var(--font-heading)",
+              }}
+            >
+              {title}
+            </h3>
+            <p
+              className={`text-sm font-medium mt-1 ${isPrimary ? "text-white/60" : "text-charcoal-light"}`}
+            >
+              {subtitle}
+            </p>
+          </div>
+        </div>
+
+        {/* Structured Items Section */}
+        <div className="grow flex flex-col gap-6">
+          {items.map((item, i) => (
+            <div key={i} className="flex gap-4">
+              <div className="mt-1 shrink-0">
+                <CheckCircle2
+                  size={18}
+                  className={isPrimary ? "text-amber" : "text-forest"}
+                  // style={{
+                  //   color: isPrimary
+                  //     ? "var(--color-amber)"
+                  //     : "var(--color-forest)",
+                  // }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <h4
+                  className={`text-[15px] font-bold ${isPrimary ? "text-white" : "text-forest-dark"}`}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className={`text-sm leading-relaxed ${isPrimary ? "text-white/70" : "text-charcoal-light"}`}
+                >
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Note Section (Maintains Symmetry) */}
+        <div
+          className={`mt-10 pt-6 border-t flex gap-3`}
+          style={{
+            borderColor: isPrimary
+              ? "rgba(255,255,255,0.1)"
+              : "rgba(28,82,68,0.08)",
+          }}
+        >
+          {footerNote ? (
+            <>
+              <AlertCircle
+                size={16}
+                className={`shrink-0 mt-0.5 ${isPrimary ? "text-amber" : "text-amber-dark"}`}
+              />
+              <p
+                className={`text-[11px] leading-relaxed italic ${isPrimary ? "text-white/50" : "text-charcoal-light"}`}
+              >
+                {footerNote}
+              </p>
+            </>
+          ) : (
+            <div className="h-4" /> // Empty space to keep alignment
+          )}
+        </div>
+      </div>
+
+      {/* Hover Decoration */}
+      <motion.div className="absolute inset-0 border-2 border-transparent rounded-4xl pointer-events-none transition-colors duration-500 group-hover:border-amber/20" />
     </motion.div>
   );
 }
 
 export default function BusinessPillars() {
+  const pillars = [
+    {
+      index: "01",
+      icon: <Coins size={28} />,
+      title: "Precious Metal Trading",
+      subtitle: "The Company's Primary Mandate",
+      isPrimary: true,
+      items: [
+        {
+          title: "Proprietary Sourcing",
+          description:
+            "Direct acquisition of raw and unrefined Gold and Silver from verified sources on the company's own account and sell to institutional global buyers.",
+        },
+        {
+          title: "Processing Coordination",
+          description:
+            "Strategic partnerships with accredited international refineries to purify inventory into market-ready forms.",
+        },
+        {
+          title: "Asset Management",
+          description:
+            "Operating strictly as a principal trader, the company holds, transports, and transacts physical gold and silver to capitalize on global spot market conditions.",
+        },
+      ],
+      footerNote:
+        "Operating strictly as a principal trader with no third-party brokerage or custody services provided.",
+    },
+    {
+      index: "02",
+      icon: <Briefcase size={28} />,
+      title: "Financing Broker",
+      subtitle: "Internal Capital Structuring",
+      items: [
+        {
+          title: "Capital Optimization",
+          description:
+            "Structure and optimize capital for our own proprietary precious metal purchases.",
+        },
+        {
+          title: "Internal Letters of Credit",
+          description:
+            "Manage internal cash flow during international commodity trading cycles.",
+        },
+        {
+          title: "Cash Flow Management",
+          description:
+            "Establish internal letters of credit and multi-currency settlements to facilitate our own cross-border physical gold and silver transactions.",
+        },
+      ],
+      footerNote:
+        "This activity is strictly an internal enablement tool. Prime Terra does not act as a lender or provide credit to third parties.",
+    },
+    {
+      index: "03",
+      icon: <Globe size={28} />,
+      title: "Management Consultancies",
+      subtitle: "Strategic Advisory Support",
+      items: [
+        {
+          title: "Supply Chain Strategy",
+          description:
+            "Advising on the optimization of global logistics and provenance tracking for high-value physical commodities.",
+        },
+        {
+          title: "Operational Efficiency",
+          description:
+            "Applying IT-driven management methodologies to drive operational scale and minimize trade friction.",
+        },
+        {
+          title: "Technological Integration",
+          description:
+            "Implementing advanced enterprise systems to enhance transparency and security within the trading lifecycle.",
+        },
+      ],
+      footerNote:
+        "Leveraging the founder's 20+ years of IT consulting expertise to create technology-enabled commodity operations.",
+    },
+  ];
+
   return (
     <section
       id="business"
-      className="py-24"
+      className="py-24 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #f8fbf9 0%, #fff 100%)" }}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -62,13 +259,7 @@ export default function BusinessPillars() {
         >
           <motion.div variants={fadeUp}>
             <Badge text="What We Do" />
-            <h2
-              className="text-4xl sm:text-5xl font-extrabold mb-4"
-              style={{
-                color: "var(--color-forest-dark)",
-                fontFamily: "var(--font-heading)",
-              }}
-            >
+            <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 max-w-4xl text-forest-dark font-heading">
               Strategic Business Pillars
             </h2>
             <p className="text-charcoal-light max-w-2xl leading-relaxed">
@@ -80,163 +271,29 @@ export default function BusinessPillars() {
           </motion.div>
         </motion.div>
 
-        {/* Pillar I */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
-          className="mb-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch"
         >
-          <div className="mb-6">
-            <span
-              className="text-xs font-bold tracking-widest uppercase mr-2"
-              style={{ color: "var(--color-forest)" }}
-            >
-              Pillar I
-            </span>
-            <span className="text-charcoal font-bold text-lg">
-              Non-Manufactured Precious Metal Trading{" "}
-              <span style={{ color: "var(--color-forest)" }}>
-                (Primary Mandate)
-              </span>
-            </span>
-            <p className="text-charcoal-light text-sm mt-1">
-              Our core business is the proprietary trading of non-manufactured{" "}
-              <strong>Gold</strong> and <strong>Silver</strong>.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <PillarCard
-              icon={<Handshake size={20} />}
-              title="Proprietary Sourcing & Sales"
-              description="We purchase raw/unrefined gold and silver on our own account and sell to institutional global buyers."
-            />
-            <PillarCard
-              icon={<Factory size={20} />}
-              title="Processing Coordination"
-              description="We coordinate independently with accredited international refineries to purify our proprietary inventory into market-ready forms."
-            />
-            <PillarCard
-              icon={<BarChart3 size={20} />}
-              title="Asset Management"
-              description="Operating strictly as a principal trader, the company holds, transports, and transacts physical gold and silver to capitalize on global spot market conditions."
-            />
-          </div>
+          {pillars.map((pillar) => (
+            <Pillar key={pillar.index} {...pillar} />
+          ))}
         </motion.div>
 
-        {/* Pillar II & III */}
+        {/* Foundation Line (Architectural Concept) */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={staggerContainer}
-          className="grid md:grid-cols-2 gap-8"
-        >
-          {/* Pillar II */}
-          <motion.div
-            variants={fadeUp}
-            className="rounded-3xl p-8"
-            style={{
-              background: "rgba(28,82,68,0.04)",
-              border: "1px solid rgba(28,82,68,0.15)",
-            }}
-          >
-            <span
-              className="text-[10px] font-bold tracking-widest uppercase"
-              style={{ color: "var(--color-forest)" }}
-            >
-              Pillar II
-            </span>
-            <h3
-              className="text-2xl font-extrabold mt-1 mb-1"
-              style={{
-                color: "var(--color-forest-dark)",
-                fontFamily: "var(--font-heading)",
-              }}
-            >
-              Financing Broker
-            </h3>
-            <p
-              className="text-sm italic mb-5"
-              style={{ color: "var(--color-forest)" }}
-            >
-              Internal Capital Structuring
-            </p>
-            <div
-              className="rounded-2xl p-4 mb-5 text-sm italic"
-              style={{
-                background: "rgba(248,171,29,0.08)",
-                border: "1px solid rgba(248,171,29,0.2)",
-                color: "var(--color-charcoal)",
-              }}
-            >
-              Please note: Prime Terra Global Ventures does not act as a lender,
-              nor do we provide supply chain financing or credit facilities to
-              third parties. Our &quot;Financing Broker&quot; activity is
-              strictly an internal enablement tool.
-            </div>
-            <p className="text-sm text-charcoal-light mb-3">
-              It allows the company to:
-            </p>
-            <ul className="flex flex-col gap-2">
-              {[
-                "Structure and optimize capital for our own proprietary precious metal purchases.",
-                "Manage internal cash flow during international commodity trading cycles.",
-                "Establish internal letters of credit and multi-currency settlements to facilitate our own cross-border physical gold and silver transactions.",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-2 text-sm text-charcoal-light"
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full mt-2 shrink-0"
-                    style={{ background: "var(--color-forest)" }}
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Pillar III */}
-          <motion.div
-            variants={fadeUp}
-            className="rounded-3xl p-8 text-white"
-            style={{ background: "var(--color-forest)" }}
-          >
-            <span className="text-[10px] font-bold tracking-widest uppercase text-amber">
-              Pillar III
-            </span>
-            <h3
-              className="text-2xl font-extrabold mt-1 mb-1 text-white"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Management Consultancies
-            </h3>
-            <p className="text-sm italic mb-5 text-amber">Strategic Advisory</p>
-            <p className="text-sm text-white/75 mb-5 leading-relaxed">
-              Leveraging our founder&apos;s 20+ years in IT/Management
-              consulting and 40-year family legacy in the jewelry trade, this
-              pillar provides high-level strategic advisory.
-            </p>
-            <ul className="flex flex-col gap-3">
-              {[
-                "Optimizing global supply chains for precious metals.",
-                "Advising on technology-enabled business transformation and enterprise integration within the physical commodities space.",
-                "Driving operational scale and capital efficiency methodologies.",
-              ].map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-white/80">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full mt-2 shrink-0"
-                    style={{ background: "var(--color-amber)" }}
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="h-px w-full mt-16 md:mt-24"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(28,82,68,0.1) 50%, transparent 100%)",
+          }}
+        />
       </div>
     </section>
   );
