@@ -1,2 +1,43 @@
 @import "tailwindcss";
 
+@theme {
+  --color-forest: #1C5244;
+  --color-forest-dark: #0d2b23;
+  --color-forest-light: #2a6b58;
+  --color-amber: #F8AB1D;
+  --color-amber-dark: #d4920a;
+  --color-charcoal: #333333;
+  --color-charcoal-light: #555555;
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-ibm-plex-sans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: var(--color-charcoal);
+  background: #ffffff;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
