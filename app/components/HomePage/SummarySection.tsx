@@ -44,7 +44,7 @@ export default function SummarySection() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp}>
-              <Badge text="About Us" />
+              {/* <Badge text="About Us" /> */}
               <h2
                 className="text-4xl sm:text-5xl font-extrabold mb-8"
                 style={{
@@ -52,7 +52,8 @@ export default function SummarySection() {
                   fontFamily: "var(--font-heading)",
                 }}
               >
-                Executive Summary
+                {/* Executive Summary */}
+                About Us
               </h2>
             </motion.div>
 
@@ -82,7 +83,7 @@ export default function SummarySection() {
           </motion.div>
 
           {/* Corporate Info Card */}
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -145,7 +146,7 @@ export default function SummarySection() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

@@ -25,9 +25,7 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
-        background: scrolled
-          ? "rgba(13, 43, 35, 0.85)"
-          : "transparent",
+        background: scrolled ? "rgba(13, 43, 35, 0.85)" : "transparent",
         backdropFilter: scrolled ? "blur(16px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(248,171,29,0.15)" : "none",
       }}
@@ -57,7 +55,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link
+          {/* <Link
             href="/founder"
             className="px-5 py-2 rounded-full text-sm font-bold tracking-wide text-forest-dark transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
             style={{
@@ -75,7 +73,7 @@ export default function Navbar() {
             }}
           >
             Meet the Founder
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Mobile toggle */}
@@ -104,14 +102,14 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Link
+          {/* <Link
             href="/founder"
             onClick={() => setMobileOpen(false)}
             className="mt-2 px-5 py-2.5 rounded-full text-sm font-bold text-center text-forest-dark"
             style={{ background: "var(--color-amber)" }}
           >
             Meet the Founder
-          </Link>
+          </Link> */}
         </div>
       )}
     </header>

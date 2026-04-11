@@ -122,7 +122,7 @@ export default function HeroSection() {
           Management, incorporated under DIEZA at Dubai Silicon Oasis.
         </p>
 
-        <div className="hero-sub flex flex-wrap justify-center gap-4">
+        {/* <div className="hero-sub flex flex-wrap justify-center gap-4">
           <a
             href="#about"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
@@ -147,7 +147,7 @@ export default function HeroSection() {
           >
             Meet the Founder <ArrowRight size={15} />
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom fade */}
