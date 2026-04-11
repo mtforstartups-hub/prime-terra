@@ -136,6 +136,7 @@ export default function Hero() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-forest-dark/40 to-transparent" />
             </motion.div>
