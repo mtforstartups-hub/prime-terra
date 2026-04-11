@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import {
   ArrowLeft,
   GraduationCap,
@@ -15,7 +15,7 @@ import {
 import Navbar from "../components/Navbar";
 
 /* ─── Reusable variants ─── */
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -24,7 +24,7 @@ const fadeUp = {
   },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 };
