@@ -1,7 +1,14 @@
 "use client";
+import { useRef } from "react";
 import { motion } from "motion/react";
 import { fadeUp, staggerContainer } from "./SummarySection";
 import { Leaf, Scale, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function GovCard({
   icon,
@@ -43,15 +50,62 @@ function GovCard({
 }
 
 export default function Governance() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const el = sectionRef.current;
+      if (!el) return;
+
+      /* 
+         Parallax effect using pixel values for precision. 
+         With a h-[150%] container, we have 50% "slack" of the section's height.
+         We move it from -100px to 100px (adjust as needed for dramatic effect).
+      */
+      gsap.fromTo(
+        ".gov-bg-img",
+        { y: -150 },
+        {
+          y: 150,
+          ease: "none",
+          scrollTrigger: {
+            trigger: el,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        },
+      );
+    },
+    { scope: sectionRef },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="governance"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "var(--color-forest-dark)" }}
+      className="py-24 relative overflow-hidden bg-forest-dark"
     >
-      {/* Subtle texture */}
+      {/* 
+          Parallax Background Image 
+          h-[150%] ensures we have plenty of image height to move around without hitting edges.
+          The image is 5260px tall, so even on large screens it has massive resolution.
+      */}
+      <div className="gov-bg-img absolute -top-[25%] left-0 w-full h-[150%] z-0 overflow-hidden">
+        <Image
+          src="/pexels-tiger-lily-7108469.jpg"
+          alt="Corporate Governance"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Dark Overlay for Readability */}
+        <div className="absolute inset-0 bg-forest-dark/85 z-1" />
+      </div>
+
+      {/* Subtle texture layer for depth */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04] z-1 pointer-events-none"
         style={{
           backgroundImage:
             "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)",
