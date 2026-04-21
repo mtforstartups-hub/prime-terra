@@ -93,11 +93,11 @@ export default function Governance() {
       */}
       <div className="gov-bg-img absolute -top-[25%] left-0 w-full h-[150%] z-0 overflow-hidden">
         <Image
-          src="/pexels-tiger-lily-7108469.jpg"
+          src="/governance-bg.jpg"
           alt="Corporate Governance"
           fill
           className="object-cover"
-          priority
+          // priority
         />
         {/* Dark Overlay for Readability */}
         <div className="absolute inset-0 bg-forest-dark/85 z-1" />

@@ -1,9 +1,34 @@
 "use client";
-import { FileText, Hash, MapPin } from "lucide-react";
+import { FileText, Hash, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import { fadeUp, staggerContainer } from "./SummarySection";
 import Badge from "../Badge";
-import Image from "next/image";
+// import Image from "next/image";
+import ContactForm from "./ContactForm";
+import Link from "next/link";
+
+const infoCards = [
+  {
+    icon: <MapPin size={20} />,
+    label: "Jurisdiction",
+    value: "Dubai Silicon Oasis (IFZA), UAE",
+  },
+  {
+    icon: <FileText size={20} />,
+    label: "License Number",
+    value: "76822",
+  },
+  {
+    icon: <Hash size={20} />,
+    label: "Registration",
+    value: "75073",
+  },
+  {
+    icon: <Phone size={20} />,
+    label: "Direct Line",
+    value: "+971 56 375 6400",
+  },
+];
 
 export default function ContactDetails() {
   return (
@@ -32,33 +57,15 @@ export default function ContactDetails() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
             {/* Left Column: Info & Address */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  {
-                    icon: <MapPin size={20} />,
-                    label: "Jurisdiction",
-                    value: "Dubai Silicon Oasis (IFZA), UAE",
-                  },
-                  {
-                    icon: <FileText size={20} />,
-                    label: "License Number",
-                    value: "76822",
-                  },
-                  {
-                    icon: <Hash size={20} />,
-                    label: "Registration",
-                    value: "75073",
-                  },
-                ].map((item, idx) => (
+                {infoCards.map((item, idx) => (
                   <motion.div
                     key={item.label}
                     variants={fadeUp}
-                    className={`rounded-2xl p-6 flex gap-4 items-start ${
-                      idx === 2 ? "sm:col-span-2" : ""
-                    }`}
+                    className={`rounded-2xl p-5 flex gap-4 items-start`}
                     style={{
                       background: "rgba(28,82,68,0.04)",
                       border: "1px solid rgba(28,82,68,0.12)",
@@ -126,7 +133,16 @@ export default function ContactDetails() {
                       </p>
                       <p className="flex gap-3">
                         <span className="text-amber font-bold">Phone:</span>{" "}
-                        +971 56 375 6400
+                        <Link href="tel:+971563756400">+971 56 375 6400</Link>
+                      </p>
+                      <p className="flex gap-3">
+                        <span className="text-amber font-bold">Emails:</span>{" "}
+                        <Link href="mailto:info@primeterra.ae">
+                          info@primeterra.ae
+                        </Link>
+                        <Link href="mailto:rahul@primeterra.ae">
+                          rahul@primeterra.ae
+                        </Link>
                       </p>
                     </div>
                   </div>
@@ -139,8 +155,10 @@ export default function ContactDetails() {
               </motion.div>
             </div>
 
+            <ContactForm />
+
             {/* Right Column: Image Card */}
-            <motion.div
+            {/* <motion.div
               variants={fadeUp}
               className="lg:col-span-5 relative min-h-100 lg:min-h-full rounded-3xl overflow-hidden shadow-2xl group"
               style={{ border: "1px solid rgba(28,82,68,0.15)" }}
@@ -162,7 +180,7 @@ export default function ContactDetails() {
                 </p>
                 <p className="text-white/60 text-xs">IFZA Properties</p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       </div>

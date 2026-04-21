@@ -52,6 +52,7 @@ export default function Navbar() {
               key={l.label}
               href={l.href}
               className="text-white/80 hover:text-amber text-sm font-medium tracking-wide transition-colors duration-200"
+              prefetch
             >
               {l.label}
             </Link>
