@@ -26,7 +26,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/pexels-uros-drljaca-906314877-29431251.jpg"
+          src="/founder-hero.jpg"
           alt="Abstract background"
           fill
           priority

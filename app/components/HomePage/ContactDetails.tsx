@@ -146,7 +146,7 @@ export default function ContactDetails() {
               style={{ border: "1px solid rgba(28,82,68,0.15)" }}
             >
               <Image
-                src="/pexels-jdgromov-28350368.jpg"
+                src="/office_location.jpg"
                 alt="Prime Terra Office — Dubai"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"

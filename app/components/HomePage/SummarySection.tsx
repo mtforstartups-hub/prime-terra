@@ -96,7 +96,7 @@ export default function SummarySection() {
           >
             <div className="h-125">
               <Image
-                src="/pexels-ellie-burgin-1661546-28182773.jpg"
+                src="/about-us.jpg"
                 alt="Gold Ore"
                 width={800}
                 height={300}

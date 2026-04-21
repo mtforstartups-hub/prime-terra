@@ -74,9 +74,9 @@ export default function HeroSection() {
       {/* Background image — object-position focuses on gold bars (left half of pdf image) */}
       <div className="hero-bg-img absolute inset-0 w-full h-[120%] -top-[10%]">
         <Image
-          src="/pexels-pixabay-56030.jpg"
+          src="/hero-home-bg.jpg"
           alt="Prime Terra — Gold and Silver Trading"
-          className="w-full h-full object-cover"
+          className="size-full object-cover"
           priority
           width={1600}
           height={1000}
