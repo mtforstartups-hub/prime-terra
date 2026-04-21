@@ -22,7 +22,7 @@ export const staggerContainer: Variants = {
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-forest-dark">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-forest-dark min-h-[90vh]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -125,7 +125,7 @@ export default function Hero() {
             variants={staggerContainer}
             className="lg:col-span-5 flex flex-col gap-6"
           >
-            <motion.div
+            {/* <motion.div
               variants={fadeUp}
               className="relative aspect-4/5 rounded-4xl overflow-hidden shadow-2xl group"
               style={{ border: "1px solid rgba(255,255,255,0.15)" }}
@@ -139,7 +139,7 @@ export default function Hero() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-forest-dark/40 to-transparent" />
-            </motion.div>
+            </motion.div> */}
 
             <div className="grid grid-cols-2 gap-4">
               {[

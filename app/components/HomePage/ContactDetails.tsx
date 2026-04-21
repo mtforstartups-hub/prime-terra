@@ -126,7 +126,7 @@ export default function ContactDetails() {
                       </p>
                       <p className="flex gap-3">
                         <span className="text-amber font-bold">Phone:</span>{" "}
-                        +971 4 228 52 85
+                        +971 56 375 6400
                       </p>
                     </div>
                   </div>
