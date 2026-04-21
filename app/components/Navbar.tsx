@@ -15,11 +15,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: "About", href: "#about" },
-    { label: "Business", href: "#business" },
+    { label: "About", href: "/#about" },
+    { label: "Business", href: "/#business" },
     { label: "Leadership", href: "/founder" },
-    { label: "Governance", href: "#governance" },
-    { label: "Contact", href: "#contact" },
+    { label: "Governance", href: "/#governance" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (

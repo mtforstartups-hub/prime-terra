@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { motion, Variants } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
-import Badge from "./Badge";
+// import Badge from "./Badge";
 
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -71,9 +71,9 @@ export default function Hero() {
             variants={staggerContainer}
             className="lg:col-span-7"
           >
-            <motion.div variants={fadeUp}>
+            {/* <motion.div variants={fadeUp}>
               <Badge text="Leadership & Executive Profile" light />
-            </motion.div>
+            </motion.div> */}
             <motion.h1
               variants={fadeUp}
               className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-none"
