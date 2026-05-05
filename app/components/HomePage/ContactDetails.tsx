@@ -60,7 +60,7 @@ export default function ContactDetails() {
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             {/* Left Column: Info & Address */}
             <div className="flex flex-col gap-6">
-              <div className="grid sm:grid-cols-2 gap-4">
+              {/* <div className="grid sm:grid-cols-2 gap-4">
                 {infoCards.map((item, idx) => (
                   <motion.div
                     key={item.label}
@@ -96,7 +96,7 @@ export default function ContactDetails() {
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </div> */}
 
               {/* Address Card */}
               <motion.div

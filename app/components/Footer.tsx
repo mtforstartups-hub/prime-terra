@@ -18,13 +18,13 @@ export default function Footer() {
             Non Manufactured Precious Metal Trading — FZCO
           </p>
         </div>
-        <div className="flex items-center gap-6 text-white/40 text-xs">
+        {/* <div className="flex items-center gap-6 text-white/40 text-xs">
           <span>Reg. No. 75073</span>
           <span>License No. 76822</span>
-          {/* <Link href="/founder" className="hover:text-amber transition-colors">
+           <Link href="/founder" className="hover:text-amber transition-colors">
             Meet the Founder
-          </Link> */}
-        </div>
+          </Link> 
+        </div> */}
         <p className="text-white/30 text-xs">
           © {new Date().getFullYear()} Prime Terra Global Ventures. All rights
           reserved.
