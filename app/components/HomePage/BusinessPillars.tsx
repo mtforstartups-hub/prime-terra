@@ -46,12 +46,12 @@ export default function BusinessPillars() {
             <h2 className="text-4xl sm:text-5xl font-extrabold mb-3 max-w-4xl text-forest-dark font-heading">
               Strategic Business Pillars
             </h2>
-            <p className="text-charcoal-light max-w-2xl leading-relaxed">
+            {/* <p className="text-charcoal-light max-w-2xl leading-relaxed">
               Prime Terra Global Ventures operates through three synergistic
               business activities, all legally authorized under its DIEZA Trade
               License. The secondary activities serve as dedicated internal
               support structures for the primary trading operations.
-            </p>
+            </p> */}
           </motion.div>
         </motion.div>
 
@@ -62,10 +62,12 @@ export default function BusinessPillars() {
           viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
           className="rounded-3xl overflow-hidden"
-          style={{ boxShadow: "0 12px 40px rgba(28,82,68,0.12)", border: "1px solid rgba(28,82,68,0.1)" }}
+          style={{
+            boxShadow: "0 12px 40px rgba(28,82,68,0.12)",
+            border: "1px solid rgba(28,82,68,0.1)",
+          }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-5">
-
             {/* ── Left: Identity Panel ── */}
             <motion.div
               variants={fadeUp}
@@ -73,10 +75,13 @@ export default function BusinessPillars() {
               style={{ background: "var(--color-forest)" }}
             >
               {/* Icon + label row */}
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: "var(--color-amber)", color: "var(--color-forest-dark)" }}
+                  style={{
+                    background: "var(--color-amber)",
+                    color: "var(--color-forest-dark)",
+                  }}
                 >
                   <Coins size={22} />
                 </div>
@@ -86,7 +91,7 @@ export default function BusinessPillars() {
                 >
                   Primary Mandate
                 </span>
-              </div>
+              </div> */}
 
               {/* Title + subtitle */}
               <div>
@@ -96,9 +101,9 @@ export default function BusinessPillars() {
                 >
                   Precious Metal Trading
                 </h3>
-                <p className="text-white/55 text-sm">
+                {/* <p className="text-white/55 text-sm">
                   The Company&apos;s Primary Mandate
-                </p>
+                </p> */}
               </div>
 
               {/* Amber accent rule */}
@@ -109,9 +114,16 @@ export default function BusinessPillars() {
 
               {/* Key facts strip */}
               <div className="flex flex-col gap-2">
-                {["Gold & Silver", "Institutional Buyers", "Global Markets"].map((tag) => (
+                {[
+                  "Gold & Silver",
+                  "Institutional Buyers",
+                  "Global Markets",
+                ].map((tag) => (
                   <div key={tag} className="flex items-center gap-2">
-                    <ShieldCheck size={13} style={{ color: "rgba(248,171,29,0.6)" }} />
+                    <ShieldCheck
+                      size={13}
+                      style={{ color: "rgba(248,171,29,0.6)" }}
+                    />
                     <span className="text-white/60 text-xs">{tag}</span>
                   </div>
                 ))}
@@ -156,13 +168,15 @@ export default function BusinessPillars() {
                 className="px-8 md:px-10 py-4 flex gap-2.5 items-start"
                 style={{ background: "rgba(28,82,68,0.025)" }}
               >
-                <AlertCircle size={14} className="shrink-0 mt-0.5 text-amber-dark" />
+                <AlertCircle
+                  size={14}
+                  className="shrink-0 mt-0.5 text-amber-dark"
+                />
                 <p className="text-[11px] leading-relaxed italic text-charcoal-light">
                   {footerNote}
                 </p>
               </div>
             </motion.div>
-
           </div>
         </motion.div>
 
