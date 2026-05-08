@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import Badge from "../Badge";
 import { fadeUp, staggerContainer } from "./SummarySection";
-import { Coins, AlertCircle, ShieldCheck } from "lucide-react";
+import { AlertCircle, ShieldCheck } from "lucide-react";
 
 const tradingItems = [
   {
@@ -29,7 +29,7 @@ export default function BusinessPillars() {
   return (
     <section
       id="business"
-      className="py-16 overflow-hidden"
+      className="py-10 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #f8fbf9 0%, #fff 100%)" }}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -39,13 +39,13 @@ export default function BusinessPillars() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
-          className="mb-10"
+          className="mb-3"
         >
           <motion.div variants={fadeUp}>
             <Badge text="What We Do" />
-            <h2 className="text-4xl sm:text-5xl font-extrabold mb-3 max-w-4xl text-forest-dark font-heading">
-              Strategic Business Pillars
-            </h2>
+            {/* <h2 className="text-4xl sm:text-5xl font-extrabold mb-3 max-w-4xl text-forest-dark font-heading">
+              What We Do
+            </h2> */}
             {/* <p className="text-charcoal-light max-w-2xl leading-relaxed">
               Prime Terra Global Ventures operates through three synergistic
               business activities, all legally authorized under its DIEZA Trade

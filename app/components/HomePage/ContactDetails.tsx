@@ -1,5 +1,5 @@
 "use client";
-import { FileText, Hash, MapPin, Phone } from "lucide-react";
+// import { FileText, Hash, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import { fadeUp, staggerContainer } from "./SummarySection";
 import Badge from "../Badge";
@@ -7,28 +7,28 @@ import Badge from "../Badge";
 import ContactForm from "./ContactForm";
 import Link from "next/link";
 
-const infoCards = [
-  {
-    icon: <MapPin size={20} />,
-    label: "Jurisdiction",
-    value: "Dubai Silicon Oasis (IFZA), UAE",
-  },
-  {
-    icon: <FileText size={20} />,
-    label: "License Number",
-    value: "76822",
-  },
-  {
-    icon: <Hash size={20} />,
-    label: "Registration",
-    value: "75073",
-  },
-  {
-    icon: <Phone size={20} />,
-    label: "Direct Line",
-    value: "+971 56 375 6400",
-  },
-];
+// const infoCards = [
+//   {
+//     icon: <MapPin size={20} />,
+//     label: "Jurisdiction",
+//     value: "Dubai Silicon Oasis (IFZA), UAE",
+//   },
+//   {
+//     icon: <FileText size={20} />,
+//     label: "License Number",
+//     value: "76822",
+//   },
+//   {
+//     icon: <Hash size={20} />,
+//     label: "Registration",
+//     value: "75073",
+//   },
+//   {
+//     icon: <Phone size={20} />,
+//     label: "Direct Line",
+//     value: "+971 56 375 6400",
+//   },
+// ];
 
 export default function ContactDetails() {
   return (
@@ -43,7 +43,7 @@ export default function ContactDetails() {
           <motion.div variants={fadeUp} className="mb-12">
             <Badge text="Contact" />
             <h2
-              className="text-4xl sm:text-5xl font-extrabold mb-4"
+              className="text-3xl sm:text-5xl font-extrabold mb-4"
               style={{
                 color: "var(--color-forest-dark)",
                 fontFamily: "var(--font-heading)",
@@ -101,7 +101,7 @@ export default function ContactDetails() {
               {/* Address Card */}
               <motion.div
                 variants={fadeUp}
-                className="rounded-3xl p-8 grow"
+                className="rounded-3xl p-6 sm:p-8 grow"
                 style={{
                   background: "var(--color-forest)",
                   border: "1px solid rgba(28,82,68,0.2)",
@@ -123,27 +123,29 @@ export default function ContactDetails() {
                       Prime Terra Global Ventures
                     </h3>
                     <div className="space-y-4 text-white/80 text-sm leading-relaxed">
-                      <p className="flex gap-3">
-                        <span className="text-amber font-bold">Entity:</span>{" "}
-                        IFZA Property FZCO
+                      <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
+                        <span className="text-amber font-bold shrink-0">Entity:</span>{" "}
+                        <span>IFZA Property FZCO</span>
                       </p>
-                      <p className="flex gap-3">
-                        <span className="text-amber font-bold">Office:</span>{" "}
-                        Dubai Silicon Oasis, DDP, Building A2, Dubai, UAE
+                      <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
+                        <span className="text-amber font-bold shrink-0">Office:</span>{" "}
+                        <span>Dubai Silicon Oasis, DDP, Building A2, Dubai, UAE</span>
                       </p>
-                      <p className="flex gap-3">
-                        <span className="text-amber font-bold">Phone:</span>{" "}
-                        <Link href="tel:+971563756400">+971 56 375 6400</Link>
+                      <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
+                        <span className="text-amber font-bold shrink-0">Phone:</span>{" "}
+                        <Link href="tel:+971563756400" className="hover:text-amber transition-colors">+971 56 375 6400</Link>
                       </p>
-                      <p className="flex gap-3">
-                        <span className="text-amber font-bold">Emails:</span>{" "}
-                        <Link href="mailto:info@primeterra.ae">
-                          info@primeterra.ae
-                        </Link>
-                        <Link href="mailto:rahul@primeterra.ae">
-                          rahul@primeterra.ae
-                        </Link>
-                      </p>
+                      <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
+                        <span className="text-amber font-bold shrink-0">Emails:</span>{" "}
+                        <div className="flex flex-col gap-2">
+                          <Link href="mailto:info@primeterraglobal.ae" className="hover:text-amber transition-colors break-all sm:break-normal">
+                            info@primeterraglobal.ae
+                          </Link>
+                          <Link href="mailto:rahul@primeterraglobal.ae" className="hover:text-amber transition-colors break-all sm:break-normal">
+                            rahul@primeterraglobal.ae
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="mt-8 pt-6 border-t border-white/10">

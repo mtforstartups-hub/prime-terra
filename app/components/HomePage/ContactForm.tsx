@@ -74,7 +74,7 @@ export default function ContactForm() {
         style={{ background: "radial-gradient(circle, #F8AB1D 0%, transparent 70%)" }}
       />
 
-      <div className="relative z-10 p-8 sm:p-10">
+      <div className="relative z-10 p-6 sm:p-10">
         {/* Header */}
         <div className="mb-8">
           <p
