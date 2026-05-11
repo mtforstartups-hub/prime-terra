@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { fadeUp, staggerContainer } from "./SummarySection";
 import { Leaf, Scale, ShieldCheck } from "lucide-react";
 import Image from "next/image";
@@ -19,32 +19,85 @@ function GovCard({
   title: string;
   description: string;
 }) {
+  // Motion values for calculating mouse position
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Add spring physics for smooth return and movement
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  // Map mouse coordinates to rotation angles (adjust the 15deg to increase/decrease tilt)
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // Normalize values between -0.5 and 0.5
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    // Reset to initial flat position
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.div
       variants={fadeUp}
-      className="rounded-3xl p-7 flex flex-col gap-4 h-full"
-      style={{
-        background: "rgba(255,255,255,0.06)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        backdropFilter: "blur(12px)",
-      }}
+      // Perspective is required on the parent for the 3D effect to work
+      style={{ perspective: 1000 }}
+      className="h-full"
     >
-      <div
-        className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="rounded-3xl p-7 flex flex-col gap-4 h-full relative"
         style={{
-          background: "rgba(248,171,29,0.15)",
-          color: "var(--color-amber)",
+          rotateX,
+          rotateY,
+          background: "rgba(255,255,255,0.06)",
+          border: "1px solid rgba(255,255,255,0.12)",
+          backdropFilter: "blur(12px)",
+          transformStyle: "preserve-3d", // Allows nested elements to pop out
         }}
       >
-        {icon}
-      </div>
-      <h3
-        className="text-lg font-bold text-white"
-        style={{ fontFamily: "var(--font-heading)" }}
-      >
-        {title}
-      </h3>
-      <p className="text-white/70 text-sm leading-relaxed">{description}</p>
+        {/* Translating Z pushes the content forward off the card back */}
+        <div
+          className="flex flex-col gap-4 h-full pointer-events-none"
+          style={{ transform: "translateZ(50px)" }}
+        >
+          <div
+            className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-xl"
+            style={{
+              background: "rgba(248,171,29,0.15)",
+              color: "var(--color-amber)",
+            }}
+          >
+            {icon}
+          </div>
+          <h3
+            className="text-lg font-bold text-white drop-shadow-md"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            {title}
+          </h3>
+          <p className="text-white/70 text-sm leading-relaxed drop-shadow-sm">
+            {description}
+          </p>
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -60,7 +113,7 @@ export default function Governance() {
       /* 
          Parallax effect using pixel values for precision. 
          With a h-[150%] container, we have 50% "slack" of the section's height.
-         We move it from -100px to 100px (adjust as needed for dramatic effect).
+         We move it from -150px to 150px (adjust as needed for dramatic effect).
       */
       gsap.fromTo(
         ".gov-bg-img",
@@ -87,9 +140,9 @@ export default function Governance() {
       className="py-24 relative overflow-hidden bg-forest-dark"
     >
       {/* 
-          Parallax Background Image 
-          h-[150%] ensures we have plenty of image height to move around without hitting edges.
-          The image is 5260px tall, so even on large screens it has massive resolution.
+         Parallax Background Image 
+         h-[150%] ensures we have plenty of image height to move around without hitting edges.
+         The image is 5260px tall, so even on large screens it has massive resolution.
       */}
       <div className="gov-bg-img absolute -top-[25%] left-0 w-full h-[150%] z-0 overflow-hidden">
         <Image
