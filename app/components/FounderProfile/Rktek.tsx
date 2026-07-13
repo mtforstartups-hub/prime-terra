@@ -28,7 +28,7 @@ export default function Rktek() {
               RKTEK
             </h2>
             <p className="text-charcoal-light leading-relaxed mb-5">
-              Since 2012, Rahul has led <strong>RKTEK</strong>, a
+              Since 2012, Raahuul has led <strong>RKTEK</strong>, a
               technology-enabled IT and management consulting firm operating in
               the United States. The business remains actively engaged and
               continues to deliver strong performance.
@@ -87,7 +87,7 @@ export default function Rktek() {
                 Founder&apos;s Dual Role
               </p>
               <p className="text-white/60 text-sm leading-relaxed">
-                Rahul actively leads RKTEK while simultaneously building Prime
+                Raahuul actively leads RKTEK while simultaneously building Prime
                 Terra into a capital-efficient global precious metals trading
                 enterprise — leveraging technology expertise to drive
                 operational scale.

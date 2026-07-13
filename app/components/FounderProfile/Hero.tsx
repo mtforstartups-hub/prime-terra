@@ -79,7 +79,7 @@ export default function Hero() {
               className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-none"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Rahul Jain
+              Raahuul Jaain
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -91,9 +91,9 @@ export default function Hero() {
               variants={fadeUp}
               className="text-white/70 text-base leading-relaxed max-w-lg"
             >
-              Rahul Jain brings a unique, multidisciplinary foundation to Prime
-              Terra Global Ventures, seamlessly blending high-impact financial
-              decision-making, deep technical expertise, and a
+              Raahuul Jaain brings a unique, multidisciplinary foundation to
+              Prime Terra Global Ventures, seamlessly blending high-impact
+              financial decision-making, deep technical expertise, and a
               multi-generational legacy in the precious metals industry.
             </motion.p>
 
@@ -131,8 +131,8 @@ export default function Hero() {
               style={{ border: "1px solid rgba(255,255,255,0.15)" }}
             >
               <Image
-                src="/Rahul_Jain.jpeg"
-                alt="Rahul Jain — Founder & Managing Director"
+                src="/Raahuul_Jain.jpeg"
+                alt="Raahuul Jaain — Founder & Managing Director"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 priority

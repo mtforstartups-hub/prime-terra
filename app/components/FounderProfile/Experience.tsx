@@ -31,7 +31,7 @@ export default function Experience() {
               Professional Experience
             </h2>
             <p className="text-charcoal-light max-w-2xl leading-relaxed">
-              Rahul brings over two decades of experience working with large
+              Raahuul brings over two decades of experience working with large
               conglomerates and Fortune 500 companies across diverse industries.
               He has successfully led cross-functional initiatives in strategy,
               transformation, compliance, and data engineering across multiple

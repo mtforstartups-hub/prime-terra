@@ -25,7 +25,7 @@ export default function Exposure() {
               Global Exposure &amp; Sector Focus
             </h2>
             <p className="text-charcoal-light max-w-2xl leading-relaxed">
-              Rahul has led and supported multinational initiatives spanning
+              Raahuul has led and supported multinational initiatives spanning
               India, the United States, United Arab Emirates, Europe, and
               Africa. His professional work encompasses financial services,
               technology infrastructure, real estate, and global operations.
@@ -44,7 +44,7 @@ export default function Exposure() {
                 Current Focus
               </h3>
               <p className="text-charcoal-light mb-5">
-                Today, Rahul leverages his unique combination of:
+                Today, Raahuul leverages his unique combination of:
               </p>
               <ul className="flex flex-col gap-4">
                 {[

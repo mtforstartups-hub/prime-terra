@@ -78,7 +78,7 @@ export default function Background() {
               Educational Background
             </h2>
             <p className="text-charcoal-light max-w-2xl leading-relaxed">
-              Rahul holds a multidisciplinary academic foundation across
+              Raahuul holds a multidisciplinary academic foundation across
               Finance, Economics, and Computer Science. His unique blend of
               technical and business education enables him to bridge data-driven
               technology solutions with high-impact financial decision-making.

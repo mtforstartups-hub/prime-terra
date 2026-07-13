@@ -66,7 +66,7 @@ export default function Legacy() {
                 </h3>
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-4">
-                Rahul&apos;s family has been deeply embedded in the diamonds,
+                Raahuul&apos;s family has been deeply embedded in the diamonds,
                 gemstones, gold, and silver jewelry business for over{" "}
                 <strong className="text-white">40 years</strong>. He has
                 hands-on operational experience across the entire precious
@@ -74,9 +74,9 @@ export default function Legacy() {
                 strategic growth initiatives.
               </p>
               <p className="text-white/70 text-sm leading-relaxed">
-                Rahul has operated at all levels of the family jewelry business,
-                including sourcing, production, retail, customer engagement, and
-                strategic growth initiatives.
+                Raahuul has operated at all levels of the family jewelry
+                business, including sourcing, production, retail, customer
+                engagement, and strategic growth initiatives.
               </p>
             </motion.div>
 
@@ -108,7 +108,7 @@ export default function Legacy() {
                 </h3>
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-4">
-                Rahul established and operated{" "}
+                Raahuul established and operated{" "}
                 <strong className="text-white">Karma Jewelry</strong> in the
                 United States as an extension of the family&apos;s Indian
                 jewelry business. The venture focused on promoting Indian
