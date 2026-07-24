@@ -24,14 +24,20 @@
 .DS_Store
 *.pem
 
+# deployment artifacts
+deploy.zip
+build-deploy.ps1
+deploy_temp/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files (.env.example is safe to commit — it has no real secrets)
 .env*
+!.env.example
 
 # vercel
 .vercel

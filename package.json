@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "bun run build-deploy.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@types/nodemailer": "^8.0.1",
+    "@zip.js/zip.js": "^2.8.34",
     "gsap": "^3.14.2",
     "lucide-react": "^1.8.0",
     "motion": "^12.38.0",
     "next": "16.2.3",
+    "nodemailer": "^9.0.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
