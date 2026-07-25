@@ -2,8 +2,20 @@
 
 import { useActionState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Send, Loader2, CheckCircle2, AlertCircle, User, Mail, BookOpen, MessageSquare } from "lucide-react";
-import { submitContactForm, type ContactFormState } from "@/app/contact/actions";
+import {
+  Send,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  User,
+  Mail,
+  BookOpen,
+  MessageSquare,
+} from "lucide-react";
+import {
+  submitContactForm,
+  type ContactFormState,
+} from "@/app/contact/actions";
 import { fadeUp } from "./SummarySection";
 
 const initialState: ContactFormState = {
@@ -45,7 +57,7 @@ const inputFocusClass =
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(
     submitContactForm,
-    initialState
+    initialState,
   );
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -62,7 +74,8 @@ export default function ContactForm() {
       variants={fadeUp}
       className="relative rounded-3xl overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, rgba(13,43,35,0.92) 0%, rgba(28,82,68,0.85) 100%)",
+        background:
+          "linear-gradient(135deg, rgba(13,43,35,0.92) 0%, rgba(28,82,68,0.85) 100%)",
         border: "1px solid rgba(248,171,29,0.15)",
         boxShadow: "0 32px 64px rgba(13,43,35,0.3)",
         backdropFilter: "blur(20px)",
@@ -71,7 +84,9 @@ export default function ContactForm() {
       {/* Decorative amber glow top-right */}
       <div
         className="pointer-events-none absolute -top-20 -right-20 w-64 h-64 rounded-full opacity-10"
-        style={{ background: "radial-gradient(circle, #F8AB1D 0%, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #F8AB1D 0%, transparent 70%)",
+        }}
       />
 
       <div className="relative z-10 p-6 sm:p-10">
@@ -79,7 +94,10 @@ export default function ContactForm() {
         <div className="mb-8">
           <p
             className="text-xs font-bold tracking-[0.2em] uppercase mb-3"
-            style={{ color: "var(--color-amber)", fontFamily: "var(--font-heading)" }}
+            style={{
+              color: "var(--color-amber)",
+              fontFamily: "var(--font-heading)",
+            }}
           >
             Send an Enquiry
           </p>
@@ -90,7 +108,8 @@ export default function ContactForm() {
             Get in Touch
           </h3>
           <p className="text-white/50 text-sm mt-2 leading-relaxed">
-            Fill in the form and our executive team will respond to your enquiry within one business day.
+            Fill in the form and our executive team will respond to your enquiry
+            within one business day.
           </p>
         </div>
 
@@ -111,13 +130,24 @@ export default function ContactForm() {
               role="status"
               aria-live="polite"
             >
-              <CheckCircle2 size={20} className="shrink-0 mt-0.5" style={{ color: "var(--color-amber)" }} />
-              <p className="text-white/90 text-sm leading-relaxed">{state.message}</p>
+              <CheckCircle2
+                size={20}
+                className="shrink-0 mt-0.5"
+                style={{ color: "var(--color-amber)" }}
+              />
+              <p className="text-white/90 text-sm leading-relaxed">
+                {state.message}
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <form ref={formRef} action={formAction} noValidate className="flex flex-col gap-5">
+        <form
+          ref={formRef}
+          action={formAction}
+          noValidate
+          className="flex flex-col gap-5"
+        >
           {/* Name + Email row */}
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Full Name */}
@@ -125,7 +155,10 @@ export default function ContactForm() {
               <label
                 htmlFor="contact-name"
                 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2"
-                style={{ color: "var(--color-amber)", fontFamily: "var(--font-heading)" }}
+                style={{
+                  color: "var(--color-amber)",
+                  fontFamily: "var(--font-heading)",
+                }}
               >
                 <User size={12} />
                 Full Name
@@ -134,14 +167,15 @@ export default function ContactForm() {
                 id="contact-name"
                 name="name"
                 type="text"
-                placeholder="John Smith"
+                placeholder="John Doe"
                 required
                 autoComplete="name"
                 className={`w-full rounded-xl px-4 py-3 text-sm ${inputFocusClass}`}
                 style={inputBase}
                 onFocus={(e) => {
                   e.currentTarget.style.borderColor = "rgba(248,171,29,0.55)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px rgba(248,171,29,0.08)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 0 3px rgba(248,171,29,0.08)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "rgba(248,171,29,0.18)";
@@ -156,7 +190,10 @@ export default function ContactForm() {
               <label
                 htmlFor="contact-email"
                 className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2"
-                style={{ color: "var(--color-amber)", fontFamily: "var(--font-heading)" }}
+                style={{
+                  color: "var(--color-amber)",
+                  fontFamily: "var(--font-heading)",
+                }}
               >
                 <Mail size={12} />
                 Email Address
@@ -172,7 +209,8 @@ export default function ContactForm() {
                 style={inputBase}
                 onFocus={(e) => {
                   e.currentTarget.style.borderColor = "rgba(248,171,29,0.55)";
-                  e.currentTarget.style.boxShadow = "0 0 0 3px rgba(248,171,29,0.08)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 0 3px rgba(248,171,29,0.08)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "rgba(248,171,29,0.18)";
@@ -188,7 +226,10 @@ export default function ContactForm() {
             <label
               htmlFor="contact-subject"
               className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: "var(--color-amber)", fontFamily: "var(--font-heading)" }}
+              style={{
+                color: "var(--color-amber)",
+                fontFamily: "var(--font-heading)",
+              }}
             >
               <BookOpen size={12} />
               Subject
@@ -203,7 +244,8 @@ export default function ContactForm() {
               style={inputBase}
               onFocus={(e) => {
                 e.currentTarget.style.borderColor = "rgba(248,171,29,0.55)";
-                e.currentTarget.style.boxShadow = "0 0 0 3px rgba(248,171,29,0.08)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 0 3px rgba(248,171,29,0.08)";
               }}
               onBlur={(e) => {
                 e.currentTarget.style.borderColor = "rgba(248,171,29,0.18)";
@@ -218,7 +260,10 @@ export default function ContactForm() {
             <label
               htmlFor="contact-message"
               className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2"
-              style={{ color: "var(--color-amber)", fontFamily: "var(--font-heading)" }}
+              style={{
+                color: "var(--color-amber)",
+                fontFamily: "var(--font-heading)",
+              }}
             >
               <MessageSquare size={12} />
               Message
@@ -233,7 +278,8 @@ export default function ContactForm() {
               style={inputBase}
               onFocus={(e) => {
                 e.currentTarget.style.borderColor = "rgba(248,171,29,0.55)";
-                e.currentTarget.style.boxShadow = "0 0 0 3px rgba(248,171,29,0.08)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 0 3px rgba(248,171,29,0.08)";
               }}
               onBlur={(e) => {
                 e.currentTarget.style.borderColor = "rgba(248,171,29,0.18)";
@@ -245,28 +291,33 @@ export default function ContactForm() {
 
           {/* Generic error */}
           <AnimatePresence>
-            {state.status === "error" && !Object.keys(state.errors ?? {}).length && (
-              <motion.p
-                key="generic-error"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="text-sm flex items-center gap-2"
-                style={{ color: "#e05252" }}
-                role="alert"
-                aria-live="assertive"
-              >
-                <AlertCircle size={14} />
-                {state.message}
-              </motion.p>
-            )}
+            {state.status === "error" &&
+              !Object.keys(state.errors ?? {}).length && (
+                <motion.p
+                  key="generic-error"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-sm flex items-center gap-2"
+                  style={{ color: "#e05252" }}
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  <AlertCircle size={14} />
+                  {state.message}
+                </motion.p>
+              )}
           </AnimatePresence>
 
           {/* Submit */}
           <motion.button
             type="submit"
             disabled={isPending}
-            whileHover={!isPending ? { y: -2, boxShadow: "0 12px 32px rgba(248,171,29,0.35)" } : {}}
+            whileHover={
+              !isPending
+                ? { y: -2, boxShadow: "0 12px 32px rgba(248,171,29,0.35)" }
+                : {}
+            }
             whileTap={!isPending ? { scale: 0.98 } : {}}
             transition={{ duration: 0.2 }}
             className="mt-2 w-full flex items-center justify-center gap-3 rounded-2xl py-4 text-sm font-bold tracking-wide cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
@@ -294,7 +345,8 @@ export default function ContactForm() {
           </motion.button>
 
           <p className="text-white/25 text-[10px] text-center tracking-wide">
-            For official correspondence only. All communications are treated with strict confidentiality.
+            For official correspondence only. All communications are treated
+            with strict confidentiality.
           </p>
         </form>
       </div>

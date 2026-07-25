@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "bun run build-deploy.ts"
+    "prebuild": "bun run scripts/check-smtp.ts",
+    "deploy": "bun run build-deploy.ts",
+    "check-smtp": "bun run scripts/check-smtp.ts",
+    "test:smtp": "bun run scripts/check-smtp.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
