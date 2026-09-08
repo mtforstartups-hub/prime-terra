@@ -124,25 +124,46 @@ export default function ContactDetails() {
                     </h3>
                     <div className="space-y-4 text-white/80 text-sm leading-relaxed">
                       <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
-                        <span className="text-amber font-bold shrink-0">Entity:</span>{" "}
+                        <span className="text-amber font-bold shrink-0">
+                          Entity:
+                        </span>{" "}
                         <span>IFZA Property FZCO</span>
                       </p>
                       <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
-                        <span className="text-amber font-bold shrink-0">Office:</span>{" "}
-                        <span>Dubai Silicon Oasis, DDP, Building A2, Dubai, UAE</span>
+                        <span className="text-amber font-bold shrink-0">
+                          Office:
+                        </span>{" "}
+                        <span>
+                          Dubai Silicon Oasis, DDP, Building A2, Dubai, UAE
+                        </span>
                       </p>
                       <p className="flex flex-col sm:flex-row gap-1 sm:gap-3">
-                        <span className="text-amber font-bold shrink-0">Phone:</span>{" "}
-                        <Link href="tel:+971563756400" className="hover:text-amber transition-colors">+971 56 375 6400</Link>
+                        <span className="text-amber font-bold shrink-0">
+                          Phone:
+                        </span>{" "}
+                        <Link
+                          href="tel:+971563756400"
+                          className="hover:text-amber transition-colors"
+                        >
+                          +971 56 375 6400
+                        </Link>
                       </p>
                       <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
-                        <span className="text-amber font-bold shrink-0">Emails:</span>{" "}
+                        <span className="text-amber font-bold shrink-0">
+                          Emails:
+                        </span>{" "}
                         <div className="flex flex-col gap-2">
-                          <Link href="mailto:info@primeterraglobal.ae" className="hover:text-amber transition-colors break-all sm:break-normal">
+                          <Link
+                            href="mailto:info@primeterraglobal.ae"
+                            className="hover:text-amber transition-colors break-all sm:break-normal"
+                          >
                             info@primeterraglobal.ae
                           </Link>
-                          <Link href="mailto:rahul@primeterraglobal.ae" className="hover:text-amber transition-colors break-all sm:break-normal">
-                            rahul@primeterraglobal.ae
+                          <Link
+                            href="mailto:raahuul@primeterraglobal.ae"
+                            className="hover:text-amber transition-colors break-all sm:break-normal"
+                          >
+                            raahuul@primeterraglobal.ae
                           </Link>
                         </div>
                       </div>
